@@ -1,31 +1,71 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HeaderComponent from '../components/Header'
-import LogIn from '../components/Login'
-import RegisterForm from '../components/Register'
+// import HeaderEcom from '../components/Header'
+// import DashBoard from '../components/Dashboard'
+import NavDrawer from '../components/drawer/NavDrawer.vue'
+import CategoryContent from '../components/category/CategoryContent.vue'
+import CartProducts from '../components/site-user/CartProducts.vue'
+import UserOrders from '../components/site-user/UserOrders.vue'
+import SellerHome from '../components/seller/SellerHome.vue'
+import RegisterSeller from '../components/seller/RegisterSeller.vue'
+import RegisterDelivery from '../components/delivery/RegisterDelivery.vue'
+import DeliveryHome from '../components/delivery/DeliveryHome.vue'
+import BuyProduct from '../components/site-user/BuyProduct.vue'
+
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // {vue
+    //   path: '/',
+    //   name: 'Dashboard',
+    //   component: DashBoard
+    // },
     {
-      path: '/',
-      name: 'home',
-      component: HeaderComponent
+      path: '/nav',
+      name: 'NavDrawer',
+      component: NavDrawer
     },
     {
-      path: '/login',
-      name: 'LogIN',
-      component: LogIn
+      path: '/category/:id',
+      name: 'Categories',
+      component: CategoryContent
     },
     {
-      path: '/register',
-      name: 'Register',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      // component: () => import(/* webpackChunkName: "about" */ '../components/Register.vue')
-      component: RegisterForm
-    }
+      path: '/cart',
+      name: 'Cart',
+      component: CartProducts
+    },
+    {
+      path: '/orders',
+      name: 'Orders',
+      component: UserOrders
+    },
+    {
+      path: '/seller',
+      name: 'Seller',
+      component: SellerHome
+    },
+    {
+      path: '/delivery',
+      name: 'Delivery',
+      component: DeliveryHome
+    },
+    {
+      path: '/register/seller',
+      name: 'Register Seller',
+      component: RegisterSeller
+    },
+    {
+      path: '/register/delivery',
+      name: 'Register Delivery',
+      component: RegisterDelivery
+    },
+    {
+      path: '/buy/:productId',
+      name: 'Buy Product',
+      component: BuyProduct
+    },
   ]
 })
